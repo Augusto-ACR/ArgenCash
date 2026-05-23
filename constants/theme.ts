@@ -4,8 +4,8 @@ import { Platform } from 'react-native';
 export const THEME = {
   colors: {
     background: '#1E1E1E',
-    primary: '#00AEEF', // Azul del logo
-    secondary: '#FFCC00', // Amarillo/Dorado del logo
+    primary: '#00AEEF', 
+    secondary: '#FFCC00', 
     textPrimary: '#0B2A3D',
     textSecondary: '#8E8E93',
     cardBackground: '#F2F2F7',

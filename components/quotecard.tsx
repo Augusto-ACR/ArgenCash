@@ -25,14 +25,11 @@ export default function QuoteCard({ quote }: QuoteCardProps) {
     <TouchableOpacity
       style={styles.card}
       activeOpacity={0.7}
-      // Al tocar, navega a la pantalla de detalle pasando el ID de la divisa
       onPress={() => router.push(`/details/${quote.id}`)}
     >
       <View style={styles.contentContainer}>
-        {/* Nombre del tipo de dólar */}
         <Text style={styles.quoteName}>{quote.name}</Text>
         
-        {/* Mostramos el valor de Venta como principal, simulando tu diseño de Figma */}
         <Text style={styles.quoteValue}>
           {quote.sell ? formatCurrency(quote.sell) : '---'}
         </Text>

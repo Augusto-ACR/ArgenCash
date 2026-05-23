@@ -1,4 +1,3 @@
-// services/api.ts
 import { QuoteData } from '../types/quotes';
 
 const BASE_URL = 'https://dolarapi.com/v1/dolares';

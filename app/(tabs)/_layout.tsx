@@ -44,11 +44,11 @@ export default function TabLayout() {
         headerLeft: () => <BackButton />,
       }}
     >
-      {/* Ocultamos index de las pestañas si no querés que aparezca abajo */}
+      
       <Tabs.Screen
         name="index"
         options={{
-          href: null, // Al poner href null, no aparece el botón en la barra inferior
+          href: null,
           headerShown: false,
           tabBarStyle: { display: 'none' }
         }}

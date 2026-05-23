@@ -9,7 +9,6 @@ export default function HomeScreen() {
 
   return (
     <SafeAreaView style={styles.container}>
-      {/* Contenedor del Logo y la Marca */}
       <View style={styles.brandContainer}>
         <Image 
           source={require('../../assets/images/LogoArgenCash.png')} 
@@ -19,7 +18,6 @@ export default function HomeScreen() {
         <Text style={styles.subtitle}>Tu brújula financiera en Argentina</Text>
       </View>
 
-      {/* Contenedor de Botones de Navegación */}
       <View style={styles.buttonContainer}>
         <TouchableOpacity 
           style={styles.buttonPrimary} 
@@ -87,7 +85,7 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.2,
     shadowRadius: 5,
-    elevation: 3, // Sombra en Android
+    elevation: 3,
   },
   buttonTextPrimary: {
     color: '#fff',

@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   errorText: {
-    color: '#FF453A', // Rojo de error
+    color: '#FF453A',
     fontSize: 16,
     textAlign: 'center',
     paddingHorizontal: THEME.spacing.xl,
