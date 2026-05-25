@@ -4,6 +4,7 @@ import { StyleSheet, FlatList, SafeAreaView, ActivityIndicator, Text, View, Touc
 import QuoteCard from '../../components/quotecard';
 import { useFetchQuotes } from '../../hooks/useFetchQuotes';
 import { THEME } from '../../constants/theme';
+import EmptyState from '../../components/EmptyState';
 
 export default function QuotesScreen() {
   const { quotes, loading, error, lastUpdated, refreshQuotes } = useFetchQuotes();
@@ -24,8 +25,10 @@ export default function QuotesScreen() {
   if (loading) {
     return (
       <SafeAreaView style={[styles.container, styles.center]}>
-        <ActivityIndicator size="large" color={THEME.colors.primary} />
-        <Text style={styles.infoText}>Actualizando cotizaciones...</Text>
+        <EmptyState
+          title="Cargando cotizaciones..."
+          variant="loading"
+        />
       </SafeAreaView>
     );
   }
@@ -33,10 +36,26 @@ export default function QuotesScreen() {
   if (error) {
     return (
       <SafeAreaView style={[styles.container, styles.center]}>
-        <Text style={styles.errorText}>⚠️ {error}</Text>
-        <TouchableOpacity style={styles.retryButton} onPress={refreshQuotes}>
-          <Text style={styles.retryButtonText}>Reintentar</Text>
-        </TouchableOpacity>
+        <EmptyState
+          title="Error al cargar cotizaciones"
+          description={error}
+          variant="error"
+          actionLabel="Reintentar"
+          onActionPress={refreshQuotes}
+        />
+      </SafeAreaView>
+    );
+  }
+  if (quotes.length === 0) {
+    return (
+      <SafeAreaView style={[styles.container, styles.center]}>
+        <EmptyState
+          title="No hay cotizaciones disponibles"
+          description="Intenta actualizar más tarde."
+          variant="empty"
+          actionLabel="Actualizar"
+          onActionPress={refreshQuotes}
+        />
       </SafeAreaView>
     );
   }

@@ -4,7 +4,7 @@ import { View, Text, StyleSheet, TextInput, TouchableOpacity, SafeAreaView, Scro
 import { Picker } from '@react-native-picker/picker'; 
 import { useFetchQuotes } from '../../hooks/useFetchQuotes'; 
 import { THEME } from '../../constants/theme';
-
+import AppButton from '../../components/AppButton';
 
 export default function CalculatorScreen() {
   const { quotes } = useFetchQuotes()
@@ -113,13 +113,13 @@ export default function CalculatorScreen() {
           />
         </View>
 
-<TouchableOpacity 
-          style={styles.calculateButton} 
-          activeOpacity={0.8}
+        <AppButton 
+          title="Calcular"
+          variant="primary"
           onPress={handleCalculate}
         >
           <Text style={styles.buttonText}>Calcular</Text>
-        </TouchableOpacity>
+        </AppButton>
 
       </ScrollView>
     </SafeAreaView>
@@ -180,13 +180,6 @@ pickerContainer: {
   disabledInput: {
     backgroundColor: '#C7C7CC', 
     color: '#555',
-  },
-  calculateButton: {
-    backgroundColor: THEME.colors.primary, 
-    borderRadius: THEME.borderRadius.md,
-    paddingVertical: 15,
-    alignItems: 'center',
-    marginTop: 15,
   },
   buttonText: {
     color: '#FFFFFF',

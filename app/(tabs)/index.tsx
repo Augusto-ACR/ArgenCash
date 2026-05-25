@@ -3,9 +3,12 @@ import React from 'react';
 import { StyleSheet, Text, View, Image, TouchableOpacity, SafeAreaView } from 'react-native';
 import { useRouter } from 'expo-router';
 import { THEME } from '../../constants/theme';
+import AppButton from '../../components/AppButton';
 
 export default function HomeScreen() {
+  
   const router = useRouter();
+
 
   return (
     <SafeAreaView style={styles.container}>
@@ -19,21 +22,23 @@ export default function HomeScreen() {
       </View>
 
       <View style={styles.buttonContainer}>
-        <TouchableOpacity 
-          style={styles.buttonPrimary} 
+        <AppButton 
+          title="Cotizaciones"
+          variant="primary"
           onPress={() => router.push('/quotes')}
           activeOpacity={0.8}
         >
           <Text style={styles.buttonTextPrimary}>Cotizaciones</Text>
-        </TouchableOpacity>
+        </AppButton>
 
-        <TouchableOpacity 
-          style={styles.buttonPrimary} 
+        <AppButton 
+          title="Calculadora"
+          variant="primary"
           onPress={() => router.push('/calculator')}
           activeOpacity={0.8}
         >
           <Text style={styles.buttonTextPrimary}>Calculadora</Text>
-        </TouchableOpacity>
+        </AppButton>
       </View>
     </SafeAreaView>
   );
@@ -76,33 +81,10 @@ const styles = StyleSheet.create({
     gap: THEME.spacing.md,
     marginBottom: 160,
   },
-  buttonPrimary: {
-    backgroundColor: THEME.colors.primary,
-    paddingVertical: THEME.spacing.md,
-    borderRadius: THEME.borderRadius.md,
-    alignItems: 'center',
-    shadowColor: THEME.colors.primary,
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.2,
-    shadowRadius: 5,
-    elevation: 3,
-  },
   buttonTextPrimary: {
-    color: '#fff',
+    color: THEME.colors.textPrimary,
     fontSize: 16,
-    fontWeight: '600',
+    fontWeight: 'bold',
   },
-  buttonSecondary: {
-    backgroundColor: 'transparent',
-    borderWidth: 2,
-    borderColor: THEME.colors.primary,
-    paddingVertical: THEME.spacing.md,
-    borderRadius: THEME.borderRadius.md,
-    alignItems: 'center',
-  },
-  buttonTextSecondary: {
-    color: '#fff',
-    fontSize: 16,
-    fontWeight: '600',
-  },
+
 });
