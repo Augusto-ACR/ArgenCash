@@ -4,6 +4,7 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { useRouter } from 'expo-router';
 import { THEME } from '../constants/theme';
 import { QuoteData } from '../types/quotes';
+import {Ionicons} from '@expo/vector-icons';
 
 interface QuoteCardProps {
   quote: QuoteData;
@@ -12,7 +13,7 @@ interface QuoteCardProps {
 export default function QuoteCard({ quote }: QuoteCardProps) {
   const router = useRouter();
 
-  // Función para formatear los números a moneda argentina ($ 1.243,34)
+
   const formatCurrency = (value: number) => {
     return new Intl.NumberFormat('es-AR', {
       style: 'currency',
@@ -30,8 +31,8 @@ export default function QuoteCard({ quote }: QuoteCardProps) {
       <View style={styles.contentContainer}>
         <Text style={styles.quoteName}>{quote.name}</Text>
         
-        <Text style={styles.quoteValue}>
-          {quote.sell ? formatCurrency(quote.sell) : '---'}
+        <Text style={styles.quoteValue1}>
+          Cotizacion:         <Text style={styles.quoteValueHighlight}>{quote.sell ? formatCurrency(quote.sell) : '---'}</Text>             <Ionicons name="chevron-forward" size={20} color="#FFFFFF" />
         </Text>
       </View>
     </TouchableOpacity>
@@ -52,14 +53,24 @@ const styles = StyleSheet.create({
     gap: THEME.spacing.md, 
   },
   quoteName: {
-    fontSize: 16,
-    color: '#AEAEB2', 
-    fontWeight: '500',
+    fontSize: 18,
+    color: '#ffffff', 
+
   },
   quoteValue: {
-    fontSize: 22,
-    color: '#FFFFFF', 
+    fontSize: 20,
+    color: '#b6b5b5', 
     fontWeight: '600',
     letterSpacing: 0.5,
+  },
+  quoteValue1: {
+
+    fontSize: 16,
+    color: '#b6b5b5',
+  },
+  quoteValueHighlight: {
+    fontSize: 22,
+    color: '#ffffff',
+    fontWeight: '700',
   },
 });

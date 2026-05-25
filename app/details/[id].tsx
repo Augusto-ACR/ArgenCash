@@ -329,7 +329,7 @@ const styles = StyleSheet.create({
   },
   priceLabel: {
     fontSize: 16,
-    color: '#FFC928', 
+    color: '#18B8F2', 
     fontWeight: '600',
     marginBottom: 8,
   },
@@ -346,7 +346,7 @@ const styles = StyleSheet.create({
   },
   sectionTitle: {
     fontSize: 20,
-    color: '#FFC928', 
+    color: '#18B8F2', 
     fontWeight: '700',
     marginBottom: 12,
     textAlign: 'center',
@@ -407,7 +407,7 @@ const styles = StyleSheet.create({
     minHeight: 110,           
   },
   factBadge: {
-    backgroundColor: '#FFC928',
+    backgroundColor: THEME.colors.primary,
     width: 24,
     height: 24,
     borderRadius: 12,
@@ -439,7 +439,7 @@ const styles = StyleSheet.create({
   },
   activeDot: {
     width: 16,               
-    backgroundColor: '#FFC928',
+    backgroundColor: '#18B8F2',
   },
   inactiveDot: {
     width: 8,

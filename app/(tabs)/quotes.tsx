@@ -6,7 +6,20 @@ import { useFetchQuotes } from '../../hooks/useFetchQuotes';
 import { THEME } from '../../constants/theme';
 
 export default function QuotesScreen() {
-  const { quotes, loading, error, refreshQuotes } = useFetchQuotes();
+  const { quotes, loading, error, lastUpdated, refreshQuotes } = useFetchQuotes();
+
+  const formattedLastUpdated = lastUpdated
+    ? new Intl.DateTimeFormat('es-AR', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: false,
+        hourCycle: 'h23',
+      }).format(lastUpdated)
+    : '---';
 
   if (loading) {
     return (
@@ -30,6 +43,9 @@ export default function QuotesScreen() {
 
   return (
     <SafeAreaView style={styles.container}>
+      <View style={styles.lastUpdateContainer}>
+        <Text style={styles.lastUpdateText}>Última actualización: {formattedLastUpdated}</Text>
+      </View>
       <FlatList
         data={quotes}
         renderItem={({ item }) => <QuoteCard quote={item} />}
@@ -53,9 +69,17 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: THEME.spacing.md,
   },
+  lastUpdateContainer: {
+    paddingHorizontal: THEME.spacing.md,
+    paddingTop: THEME.spacing.sm,
+  },
+  lastUpdateText: {
+    color: '#AEAEB2',
+    fontSize: 13,
+  },
   listContent: {
     paddingHorizontal: THEME.spacing.md,
-    paddingTop: THEME.spacing.md,
+    paddingTop: THEME.spacing.sm,
     paddingBottom: THEME.spacing.xl,
   },
   infoText: {

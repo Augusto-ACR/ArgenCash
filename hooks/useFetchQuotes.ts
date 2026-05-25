@@ -6,6 +6,7 @@ export function useFetchQuotes() {
   const [quotes, setQuotes] = useState<QuoteData[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
+  const [lastUpdated, setLastUpdated] = useState<Date | null>(null);
 
   const loadQuotes = async () => {
     try {
@@ -13,6 +14,7 @@ export function useFetchQuotes() {
       setError(null);
       const data = await fetchDolarQuotes();
       setQuotes(data);
+      setLastUpdated(new Date());
     } catch (err: any) {
       setError(err.message || 'Ocurrió un error de red');
     } finally {
@@ -24,5 +26,5 @@ export function useFetchQuotes() {
     loadQuotes();
   }, []);
 
-  return { quotes, loading, error, refreshQuotes: loadQuotes };
+  return { quotes, loading, error, lastUpdated, refreshQuotes: loadQuotes };
 }
