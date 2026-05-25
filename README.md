@@ -1,50 +1,78 @@
-# Welcome to your Expo app 👋
+# TP Aplicación móvil con marca propia  
+## ArgenCash - App desarrollada con React Native + Expo
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+### Autores
+- **Augusto Rodríguez** – [augustocrodriguez2004@gmail.com](mailto:augustocrodriguez2004@gmail.com)  
+- **Rolando Villegas** – [rolando.villegas@gmail.com](mailto:rolando.villegas@gmail.com)
 
-## Get started
+---
 
-1. Install dependencies
+## Descripción del proyecto
 
-   ```bash
-   npm install
-   ```
+**ArgenCash** es una aplicación móvil desarrollada con React Native y Expo para consultar cotizaciones del dólar en Argentina y realizar conversiones entre pesos argentinos y distintos tipos de cambio.
 
-2. Start the app
+## Funcionalidades
 
-   ```bash
-   npx expo start
-   ```
+- Pantalla de inicio con identidad de marca.
+- Listado de cotizaciones actualizado desde una API pública.
+- Pantalla de detalle para cada tipo de dólar.
+- Calculadora de conversión entre pesos y distintos tipos de dólar.
+- Manejo de estados de carga y error.
+- Navegación mediante Expo Router.
 
-In the output, you'll find options to open the app in a
+## Instalación
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
+Para instalar las dependencias del proyecto, ejecutá:
 
 ```bash
-npm run reset-project
+npm install
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## Ejecución
 
-## Learn more
+Para iniciar la aplicación con Expo, ejecutá:
 
-To learn more about developing your project with Expo, look at the following resources:
+```bash
+npx expo start
+```
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+Luego, se puede abrir la aplicación desde Expo Go escaneando el código QR o bien se puede ejecutar en un emulador Android/iOS compatible.
 
-## Join the community
+## Estructura del proyecto
 
-Join our community of developers creating universal apps.
+```text
+app/
+  Pantallas y rutas de la aplicación.
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+components/
+  Componentes reutilizables de interfaz.
+
+services/
+  Acceso a datos externos.
+
+hooks/
+  Lógica reutilizable relacionada con estado y obtención de datos.
+
+types/
+  Modelos TypeScript utilizados por la aplicación.
+
+constants/
+  Configuración visual base, como colores y estilos generales.
+```
+
+## API utilizada
+
+La aplicación consume cotizaciones desde DolarAPI:
+
+```text
+https://dolarapi.com/v1/dolares
+```
+
+## Tecnologías utilizadas
+
+- React Native
+- Expo
+- Expo Router
+- TypeScript
+- React Hooks
+- DólarAPI
