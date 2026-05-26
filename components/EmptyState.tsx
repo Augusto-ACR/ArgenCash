@@ -33,7 +33,7 @@ export default function EmptyState({
       
       
       {variant === 'loading' && (
-        <ActivityIndicator size="large" color="#FFC928" style={styles.spinner} /> // [cite: 121]
+        <ActivityIndicator size="large" color="#FFC928" style={styles.spinner} /> 
       )}
 
    
